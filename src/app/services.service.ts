@@ -4,6 +4,18 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router'; 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Client } from './auth/client';
+import { GoogleAuthProvider,FacebookAuthProvider,TwitterAuthProvider } from '@angular/fire/auth';
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,41 +53,56 @@ export class ServicesService {
 
     Logout() {
       this.signInCompte.signOut();
+
+      this.router.navigate(['/']);
     }
 
+    // Add a new document in collection "cities" with ID 'LA'
+     
 
-
-
-
+a:any;
+    
 
     addClient(client: Client) {
-      this.dataS.collection("InfoClient").doc(this.a).get(this.a).subscribe(s=>{this.verif=s.exists})
-      if (this.verif==true)
-      {this.a = String(client.indice+1)}
-      else
-      {this.a = String(client.indice)}
-      this.dataS.collection("InfoClient").doc(this.a).set({
-        FirstName: client.Firstname,
-        LastName: client.Lastname,
-        class: client.class,
-        indice: this.a
-      }).then(() => { this.router.navigate(['/fp5edma']) }).catch((data) => { window.alert(data) })
+     
+      this.a = String(client.Username)
+     // db.collection('cities').doc('LA').set(data);
+        this.dataS.collection("infoclient").doc(this.a).set({
+        Email: client.Email,
+        Password: client.Password,
+        Numero: client.Numero,
+        Username: this.a
+      }).then(() => { this.router.navigate(['/']) }).catch((erreur) => { window.alert(erreur) })
     }
+  /*
   
-  
-    editEtudiant(indices: number, client: Auth) {
+    editCompte(client: Client) {
       this.a = String(indices)
-      this.dataS.collection("client").doc(this.a).set({
-        FirstName: client.Firstname,
-        LastName: client.Lastname,
-        class: client.class,
-        indice: indices
-      }).then(() => { this.router.navigate(['/ListEtudiant']) }).catch((data) => { window.alert(data) })
+     this.dataS.collection("infoclient").doc(this.a).set({
+        Email: client.Email,
+        Password: client.Password,
+        Numero: client.Numero,
+        Username: this.a
+      }).then(() => { this.router.navigate(['/']) }).catch((erreur) => { window.alert(erreur) })
     }
   
     deleteEtudiant(iindice: number) {
       this.a = String(iindice)
       return this.dataS.collection("eleve").doc(this.a).delete()
     }
-  }
 
+    */
+
+    GoogleSignIn(){
+      return this.signInCompte.signInWithPopup(new GoogleAuthProvider().addScope('email')).then(()=>alert('welcome')).catch((erreur)=>alert(erreur))
+    }
+
+    FacebookSignIn(){
+      return this.signInCompte.signInWithPopup(new FacebookAuthProvider() ).then(()=>alert('welcome')).catch((erreur)=>alert(erreur))
+    }
+
+    YahooSignIn(){
+      return this.signInCompte.signInWithPopup(new FacebookAuthProvider() ).then(()=>alert('welcome')).catch((erreur)=>alert(erreur))
+    }
+
+  }
