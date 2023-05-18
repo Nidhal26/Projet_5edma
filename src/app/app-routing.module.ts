@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { FP5edmaComponent } from './fp5edma/fp5edma.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { OffreComponent } from './offre/offre.component';
+import { DemandeComponent } from './demande/demande.component';
 
 const routes: Routes = [
   {path:"", component:AuthComponent},
   {path:"test", component:FP5edmaComponent},
-  {path:"PageDaccueil", component:AccueilComponent}
+  {path:"PageDaccueil", component:AccueilComponent},
+  {path:"Offre", component:OffreComponent},
+  {path:"Demande", component:DemandeComponent}
 ];
 
 @NgModule({
