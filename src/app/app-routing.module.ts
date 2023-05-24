@@ -5,13 +5,19 @@ import { FP5edmaComponent } from './fp5edma/fp5edma.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { OffreComponent } from './offre/offre.component';
 import { DemandeComponent } from './demande/demande.component';
+import { AjouterComponent } from './CRUD  Services/ajouter/ajouter.component';
+import { ModifierComponent } from './CRUD  Services/modifier/modifier.component';
+import { ParametreComponent } from './parametre/parametre.component';
 
 const routes: Routes = [
   {path:"", component:AuthComponent},
   {path:"test", component:FP5edmaComponent},
   {path:"PageDaccueil", component:AccueilComponent},
   {path:"Offre", component:OffreComponent},
-  {path:"Demande", component:DemandeComponent}
+  {path:"Demande", component:DemandeComponent},
+  {path:"Ajouter", component:AjouterComponent},
+  {path:"Modifier", component:ModifierComponent},
+  {path:"Reglage", component:ParametreComponent}
 ];
 
 @NgModule({

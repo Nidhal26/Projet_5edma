@@ -11,28 +11,41 @@ import { ServicesService } from '../services.service';
 export class AuthComponent  implements OnInit {
 
   ISuser: boolean = false;
+  name: any;
 
   constructor(private route: Router,private spinner: NgxSpinnerService,private MyService:ServicesService) { 
-
     this.MyService.user.subscribe(user => {
       if (user) {
         this.ISuser = true
-        console.log(this.ISuser)
+        this.MyService.setvalue(user.uid)
       } else {
         this.ISuser = false
         console.log(this.ISuser)
       }
     })
-   }
+  }   
 
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   ngOnInit(): void {
     
-  }
+   }
+    
+  
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
   sign_in_btn: any
@@ -66,21 +79,20 @@ export class AuthComponent  implements OnInit {
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 5000);
+    }, 3000);
 
   }
 
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   sign_in(log: { Email: string, Password: string }) {
-    console.log(log.Email)
     this.MyService.signIn(log.Email, log.Password)
   }
 
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   sign_up(form:{Username:string,Numero:number,Email:string,Password:string}){
-   // this.MyService.SignUp(login.Email,login.Password);
+   this.MyService.SignUp(form.Email,form.Password);
    this.MyService.addClient(form);
   }
 

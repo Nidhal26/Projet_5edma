@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SupprimerComponent } from './supprimer.component';
+import { ParametreComponent } from './parametre.component';
 
-describe('SupprimerComponent', () => {
-  let component: SupprimerComponent;
-  let fixture: ComponentFixture<SupprimerComponent>;
+describe('ParametreComponent', () => {
+  let component: ParametreComponent;
+  let fixture: ComponentFixture<ParametreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SupprimerComponent ]
+      declarations: [ ParametreComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SupprimerComponent);
+    fixture = TestBed.createComponent(ParametreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

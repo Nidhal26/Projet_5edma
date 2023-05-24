@@ -31,13 +31,17 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FP5edmaComponent } from './fp5edma/fp5edma.component';
 import { AjouterComponent } from './CRUD  Services/ajouter/ajouter.component';
-import { SupprimerComponent } from './CRUD  Services/supprimer/supprimer.component';
 import { ModifierComponent } from './CRUD  Services/modifier/modifier.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { OffreComponent } from './offre/offre.component';
 import { DemandeComponent } from './demande/demande.component';
+import { OffreComponent } from './offre/offre.component';
+import { ParametreComponent } from './parametre/parametre.component';
 
-//______________________________________Ngx-Spinner-End_______________________________________________z
+//______________________Angular-Component________________Ngx-Spinner-End__________________________________________________
+
+
+
+//______________________________________Ngx-Spinner-End__________________________________________________
 
 @NgModule({
   declarations: [
@@ -45,11 +49,11 @@ import { DemandeComponent } from './demande/demande.component';
     AuthComponent,
     FP5edmaComponent,
     AjouterComponent,
-    SupprimerComponent,
     ModifierComponent,
     AccueilComponent,
-    OffreComponent,
     DemandeComponent,
+    OffreComponent,
+    ParametreComponent,
   ],
   imports: [
     BrowserModule,
