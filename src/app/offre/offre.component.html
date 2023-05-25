@@ -74,34 +74,63 @@
   </div>
   <div *ngIf="ISuser">
     <h1>Mes Offres</h1>
+    <button type="submit" value="Ajouter" class="btn btn-primary" routerLink="/Ajouter">Ajouter</button>
+
 
     <!------------------------------création d'une carte------------------------------------------------------------------------>
     <div class="wrapper" *ngFor="let elm of ArrayOffres">
       <h1>Parallax Flipping Cards</h1>
       <div class="cols">
-          <div class="col" ontouchstart="this.classList.toggle('hover');">
-            <div class="container">
-              <div class="front" style="background-image: url({{elm.Image}})">
-                <div class="inner">
-                  <p>{{elm.Username}}</p>
-                  <span>{{elm.Email}}</span>
-                </div>
-               
-
+        <div class="col" ontouchstart="this.classList.toggle('hover');">
+          <div class="container">
+            <div>
+              <div class="inner">
+                <p>{{elm.Username}}</p>
+                <span>{{elm.Email}}</span>
               </div>
-              <div class="back">
-                <div class="inner">
-                  <p>{{elm.Description}}</p>
-                </div>
+
+
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p>{{elm.Description}}</p>
               </div>
             </div>
           </div>
-          <button type="submit" value="Ajouter" routerLink="/Ajouter">Ajouter</button>
-          <button type="button" value="Supprimer" (click)="DeleteOffre(elm.codeOffre)">Supprimer</button>
-          <button type="button" value="Modifier" (click)="getIndice(elm.codeOffre)" routerLink="/Modifier">Modifier</button>
-
-  </div>
-</div>
+        </div>
 
 
 
+        <h1 class="h2 text-center text-light bg-dark pt-2 pb-3 mb-0">Bootstrap responsive card-deck</h1>
+        <div *ngFor="let elm of ArrayOffres">
+          <div *ngIf="elm.Email==e">
+            <div class="container">
+              <header>
+                <div class="jumbotron py-4 rounded-0">
+                  <p class="lead">This is a good solution for SCSS users to build real responsive card-deck with
+                    Bootstrap 4.
+                  </p>
+                </div>
+              </header>
+              <div class="card-deck">
+                <div class="card my-3">
+                  <img class="card-img-top" src="{{elm.Image}}">
+                  <div class="card-body">
+                    <h4 class="card-title">{{elm.Username}}</h4>
+                    <p class="card-text">{{elm.Description}}</p>
+                    <button class="btn btn-primary" type="button">Button</button>
+                    <button type="button" value="Supprimer" class="btn btn-primary"
+                      (click)="DeleteOffre(elm.codeOffre)">Supprimer</button>
+                    <button type="button" value="Modifier" class="btn btn-primary" (click)="getIndice(elm.codeOffre)"
+                      routerLink="/Modifier">Modifier</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>

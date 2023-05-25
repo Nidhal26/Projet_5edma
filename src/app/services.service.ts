@@ -130,7 +130,7 @@ this.nameAfficher=client.Username;
     return this.dataS.collection("infoclient").ref.doc(e).get()}
 
     getOffre(e:any) {
-      return this.dataS.collection("infoOffre").ref.doc(e).get()}
+      return this.dataS.collection("InfoOffre").ref.doc(e).get()}
   /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 valeur:any;
@@ -178,10 +178,8 @@ AddOffre(o:offre){
   }).then(() => {window.alert("Ajouté avec Succés") }).catch((erreur) => { window.alert(erreur) })
 }
 
-UpdateOffre(o : any){
-  return this.dataS.collection("InfoOffre").doc(o.codeOffre).update({
-    codeOffre: o.codeOffre,
-    Email: o.Email,
+UpdateOffre(o : any,x: any){
+  return this.dataS.collection("InfoOffre").doc(x).set({
     Numero: o.Numero,
     Username:o.Username,
     Description:o.Description,

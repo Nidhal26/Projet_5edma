@@ -11,7 +11,10 @@ export class OffreComponent implements OnInit{
 
   ISuser: boolean = false;
   name:any;
+  e:any;
+
   constructor(private myservice:ServicesService,private spinner: NgxSpinnerService){ 
+    this.e=this.myservice.id;
     this.myservice.user.subscribe(user => {
       if (user) {
         this.ISuser = true
@@ -58,6 +61,6 @@ export class OffreComponent implements OnInit{
 
   getIndice(i:any){
     this.myservice.setCodeOffre(i)
-
   }
+
 }

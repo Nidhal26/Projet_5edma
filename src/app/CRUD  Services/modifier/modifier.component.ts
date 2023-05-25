@@ -25,7 +25,7 @@ test:any
     })
     
   }ngOnInit(): void {
-   
+   this.test=this.MyService.getCodeOffre()
     this.SetOffre();
   
   }
@@ -47,27 +47,27 @@ test:any
   ArrayOffre = {
     Username:'',
     Numero:'',
-    Email:'',
-    Titre:'',
+    TitreOffre:'',
     Description:'',
     Image:''
   };
   
   SetOffre() {
-    console.log(this.MyService.getCodeOffre())
     console.log(this.test)
     this.MyService.getOffre(this.test).then(data => {
+      console.log(this.test)
      this.ArrayOffre.Numero=data.get('Numero')
-     this.ArrayOffre.Titre=data.get('Titre')
+     this.ArrayOffre.TitreOffre=data.get('Titre')
      this.ArrayOffre.Image=data.get('Image')
      this.ArrayOffre.Username=data.get('Username')
      this.ArrayOffre.Description=data.get('Description')
   })
-}
-
-UpdateOffre(form:{Username:string,Description:string,Numero:string,Image:string,Titre:string}){
-  this.MyService.UpdateOffre(form);
+  console.log(this.ArrayOffre)
 }
 
 
+UpdateOffre(form:{Username:string,Description:string,Numero:string,Image:string,TitreOffre:string}){
+  
+  this.MyService.UpdateOffre(form,this.test);
+}
 }
