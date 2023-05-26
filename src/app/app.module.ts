@@ -22,7 +22,8 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-import { provideStorage,getStorage } from '@angular/fire/storage'; 
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { DatePipe } from '@angular/common';
 
 //____________________FireBase-End_____________Ngx-Spinner-Begin________________________________________
 
@@ -36,6 +37,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { DemandeComponent } from './demande/demande.component';
 import { OffreComponent } from './offre/offre.component';
 import { ParametreComponent } from './parametre/parametre.component';
+import { CommandeComponent } from './commande/commande.component';
+import { AjouterdemandeComponent } from './CRUD  Services/ajouterdemande/ajouterdemande.component';
 
 //______________________Angular-Component________________Ngx-Spinner-End__________________________________________________
 
@@ -54,6 +57,8 @@ import { ParametreComponent } from './parametre/parametre.component';
     DemandeComponent,
     OffreComponent,
     ParametreComponent,
+    CommandeComponent,
+    AjouterdemandeComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,8 @@ import { ParametreComponent } from './parametre/parametre.component';
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    DatePipe
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

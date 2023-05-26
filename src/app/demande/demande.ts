@@ -1,11 +1,10 @@
-export class offre {
+export class Demande {
     Username: String | undefined;
-    Numero: number | undefined;
+    Numero: string | undefined;
     Email: string | undefined;
     TitreOffre:String | undefined;
     Description:String | undefined;
     Image:String | undefined;
-    codeOffre : string | undefined;
-  
+    codeDemande : string | undefined;
 
 }

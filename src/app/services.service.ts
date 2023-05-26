@@ -7,6 +7,7 @@ import { Client } from './auth/client';
 import { GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from '@angular/fire/auth';
 import { update } from '@angular/fire/database';
 import { offre } from './offre/offre';
+import { Demande } from './demande/demande';
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -166,7 +167,7 @@ console.log(Profile.Username)
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-AddOffre(o:offre){
+AddOffre(o:offre,dd:any){
   return this.dataS.collection('InfoOffre').doc(o.codeOffre).set({
     codeOffre: o.codeOffre,
     Email: o.Email,
@@ -174,12 +175,13 @@ AddOffre(o:offre){
     Username:o.Username,
     Description:o.Description,
     Titre:o.TitreOffre,
-    Image:o.Image
+    Image:o.Image,
+    dateOffre:dd
   }).then(() => {window.alert("Ajouté avec Succés") }).catch((erreur) => { window.alert(erreur) })
 }
 
 UpdateOffre(o : any,x: any){
-  return this.dataS.collection("InfoOffre").doc(x).set({
+  return this.dataS.collection("InfoOffre").doc(x).update({
     Numero: o.Numero,
     Username:o.Username,
     Description:o.Description,
@@ -199,5 +201,21 @@ setCodeOffre(c:any){
 }
 getCodeOffre(){
   return this.code;
+}
+
+getCommande(){
+  return this.dataS.collection('InfoDemande').snapshotChanges()
+}
+
+AddDemande(o:Demande){
+  return this.dataS.collection('InfoDemande').doc(o.codeDemande).set({
+    codeDemande: o.codeDemande,
+    Email: o.Email,
+    Numero: o.Numero,
+    Username:o.Username,
+    Description:o.Description,
+    Titre:o.TitreOffre,
+    Image:o.Image
+  }).then(() => {window.alert("commandé avec Succés") }).catch((erreur) => { window.alert(erreur) })
 }
 }
