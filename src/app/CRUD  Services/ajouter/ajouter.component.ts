@@ -3,29 +3,36 @@ import { Router } from '@angular/router';
 import { ServicesService } from 'src/app/services.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-ajouter',
   templateUrl: './ajouter.component.html',
-  styleUrls: ['./ajouter.component.css']
+  styleUrls: ['./ajouter.component.css'],
 })
 export class AjouterComponent implements OnInit {
   ISuser: boolean = false;
-name:any;
-em:any;
+name=this.MyService.getUserName() 
+em:any
+dateOffre:any
+  myDate= Date.now();
 
-
-  constructor(private MyService: ServicesService, private router: Router,private spinner:NgxSpinnerService,private d : DatePipe) {
+  constructor(private MyService: ServicesService, private router: Router,private spinner:NgxSpinnerService) {
     this.MyService.user.subscribe(user => {
       if (user) {
         this.ISuser = true
-        this.name=user.displayName
       } else {
         this.ISuser = false
         console.log(this.ISuser)
       }
     })
+
     this.em =this.MyService.id
-  }ngOnInit(): void {
+
+   
+  }
+  
+  
+  ngOnInit(): void {
   
   }
 
@@ -45,8 +52,9 @@ em:any;
   }
   
   InsertOffre(form:{codeOffre:string,Username:string,Numero:number,Email: string,TitreOffre:string,Description:string,Image:string}){
-    
-    this.MyService.AddOffre(form,this.d.transform((new Date),'dd/MM/yyyy'));
+    console.log(this.myDate)
+    this.MyService.AddOffre(form,this.myDate)
+   
   }
   
   

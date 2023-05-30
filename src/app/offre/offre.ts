@@ -6,6 +6,5 @@ export class offre {
     Description:String | undefined;
     Image:String | undefined;
     codeOffre : string | undefined;
-  
 
 }

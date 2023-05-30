@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 //____________________FireBase-Begin_____________________________________________________
 
@@ -22,8 +23,7 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-import { provideStorage,getStorage } from '@angular/fire/storage';
-import { DatePipe } from '@angular/common';
+import { provideStorage,getStorage } from '@angular/fire/storage'; 
 
 //____________________FireBase-End_____________Ngx-Spinner-Begin________________________________________
 
