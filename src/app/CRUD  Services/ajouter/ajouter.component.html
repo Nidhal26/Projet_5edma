@@ -40,11 +40,6 @@
               <a class="nav-link " routerLink="/" (click)="SignOut()">Déconnexion</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search"
-              aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -86,6 +81,7 @@
     </div>
   </div>
   <div *ngIf="ISuser">
+    <div class="padT"><h1>Cree Une Offre</h1></div>
     <div class="position-relative">
       <div class="position-absolute top-50 start-50 translate-middle">
         <div class="pad">
@@ -109,7 +105,7 @@
             </div>
             <div class="input-field">
 
-              <input type="email" disabled [(ngModel)]="em" name="Email"
+              <input type="text" disabled [(ngModel)]="em" name="Email"
                 class="form-control" #Email="ngModel" ngModel />
             </div>
 
