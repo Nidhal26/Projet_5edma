@@ -37,6 +37,26 @@ p {
   margin: 0;
   padding: 0;
 }
+.pad{
+  padding-top: 500px;
+  padding-bottom: 100px;
+}
+
+.b1{
+  padding-top: 20px;
+}
+form{
+  width: 500px;   
+}
+input{
+  text-align: center;
+}
+
+.padT{
+  padding-left: 690px;
+  padding-top: 80px;
+}
+
 
 .flex { /*Flexbox for containers*/
   display: flex;

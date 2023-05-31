@@ -18,6 +18,7 @@ export class ParametreComponent implements OnInit {
   };
   ISuser: boolean = false;
   id:any;
+  name:any;
     //______________________________________________________________________________________________________
 
   constructor(private MyService: ServicesService, private router: Router,private spinner: NgxSpinnerService) {
@@ -29,6 +30,7 @@ export class ParametreComponent implements OnInit {
         console.log(this.ISuser)
       }
     })
+    this.name=this.MyService.id
   } 
   //______________________________________________________________________________________________________
   ngOnInit(): void {  
